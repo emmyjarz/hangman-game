@@ -2,9 +2,61 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title></title>
+	<title>Hangman</title>
+	<link rel="stylesheet" href="assets/css/reset.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
+	<link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
+	<!-- <h1>HANGMAN</h1>
+	<h3>Small Dog Breeds</h3>
+	<h1 id="dogPicked">dogPicked</h1>
+	<div id = "wraper" class="container-fluid">
 	
+			<div class="left">
+				<img src="http://www.dog-learn.com/dog-breeds/maltese/images/maltese-u1.jpg" alt="">
+			</div>
+			<div class="right">
+				<h2>PRESS ANY KEY TO GET STARTED!!!</h2>
+				<p>WINS: <span id="win">0</span></p>
+				<p>CURRENT WORD</p>
+				<p>_ _ _</p>
+				<p>NUMBER OF GUESSED REMAINING: <span id = "guessedLeft">0<span></p>
+				<p>LETTER ALREADY GUESSED<span id="beenGuessed"></span></p>
+			</div>
+	
+	</div> -->
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-xs-12">
+				<h1>HANGMAN</h1>
+				<h3>Small Dog Breeds</h3>
+				<h3 id="dogPicked">dogPicked</h3>
+			</div>
+		</div><!-- first row -->
+		<div class="row row-eq-height">
+			<div class="col-xs-2"></div>
+				
+					<div class="col-xs-4 left">
+						<div class="thumbnail">
+							<img src="http://www.dog-learn.com/dog-breeds/maltese/images/maltese-u1.jpg" alt="">
+						</div>
+					</div><!-- left column -->
+					<div class="col-xs-4 right">
+						<h2>PRESS ANY KEY TO GET STARTED!!!</h2>
+						<p>WINS: <span id="wins">0</span></p>
+						<p>CURRENT WORD</p>
+						<span id = "currentWord"></span>
+						<p>NUMBER OF GUESSED REMAINING: <span id = "guessedLeft">15<span></p>
+						<p>LETTER ALREADY GUESSED:</p>
+						<span id="beenGuessed"></span>
+					</div><!-- right column -->
+				
+			<div class="col-xs-2"></div>
+		</div><!-- second row -->
+
+	</div><!-- container -->
+	
+<script type="text/javascript" src = "assets/javascript/game.js"></script>	
 </body>
 </html>
