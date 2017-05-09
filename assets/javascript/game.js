@@ -7,10 +7,12 @@ var	loses = document.getElementById('loses');
 var	guessedLeft = document.getElementById('guessedLeft');
 var	beenGuessed = document.getElementById('beenGuessed');
 var winScore = 0;
+var letterPress = [];
 /*var loseScore = 0;*/
 var guessedLeftScore = 15;
 	guessed = [];
 	comChoice = ["maltese"/*, "chihuahua", "poodle"*/];
+
 
 
 
@@ -49,7 +51,15 @@ console.log(newString);*/
 
         // Determine which key was pressed
         var comPicked = comChoice[Math.floor(Math.random() * 1)];
-       
+      /*  console.log(comPicked);
+        console.log(comPicked[0]);
+
+        currentWord.textContent = "_ "
+        currentWord.textContent = "_ _ "*/
+  
+       for(i=0; i<comPicked.length; i++){
+	currentWord.textContent = currentWord.textContent+ " _ ";
+}
   
        
        
@@ -65,7 +75,7 @@ console.log(newString);*/
 
     	//check if letter in the word
     	var checkLetter = comPicked.indexOf(userGuess);
- 		 //userGuess = "m"
+ 		
  	
  
 
@@ -75,12 +85,13 @@ console.log(newString);*/
     	currentWord.textContent = userGuess;
     
     	//check what position of userGuess in comPicked.
-  /*  	for(i = 0; i < comPicked.length; i++){
+ 	for(i = 0; i < comPicked.length; i++){
+  	
     		if (userGuess == comPicked.charAt(i)){
-    			currentWord.textContent = userGuess;*/
-    		
+    			currentWord.textContent = userGuess;
+    	}	
     	}
-    	else{
+    	}else{
     	//that letter isn't in comPicked
     
     	guessedLeftScore--;
