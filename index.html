@@ -6,6 +6,8 @@
 	<link rel="stylesheet" href="assets/css/reset.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
 	<link rel="stylesheet" href="assets/css/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Indie+Flower|Lobster" rel="stylesheet">
+
 </head>
 <body>
 	
@@ -14,7 +16,7 @@
 			<div class="col-xs-12">
 				<h1>HANGMAN</h1>
 				<h3>Small Dog Breeds</h3>
-				<h3 id="dogPicked">dogPicked</h3>
+				<h3 id="chosenDog"></h3>
 			</div>
 		</div><!-- first row -->
 		<div class="row row-eq-height">
@@ -23,12 +25,15 @@
 					<div class="col-xs-4 left">
 						<div class="thumbnail">
 				
-							<img src="http://www.dog-learn.com/dog-breeds/maltese/images/maltese-u1.jpg" alt="">
+							<img id="image" src="https://i.giphy.com/mVeXedeY4lpiE.gif" alt="">
+							<p id = "caption"></p>
 						</div>
 					</div><!-- left column -->
 					<div class="col-xs-4 right">
 						<h2>PRESS ANY KEY TO GET STARTED!!!</h2>
-						<p>WINS: <span id="wins">0</span></p>
+						<p><span id="winScore"></span></p>
+						<p><span id="loseScore"></span></p>
+						<span id="lose"></span>
 						<p>CURRENT WORD</p>
 						<span id = "currentWord"></span>
 						<p>NUMBER OF GUESSED REMAINING: <span id = "guessedLeft">15<span></p>
