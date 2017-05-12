@@ -1,128 +1,61 @@
-var currentWord = document.getElementById('currentWord');
+var	wordsList = ["maltese", "chihuahua", "poodle"];
+var chosenWord = "";
+var underScore = [];
+var guessedLeftScore = 10;
+var	guessedWrong = [];
 
 
-//var comPickedLength = comPicked.length;
-var wins = document.getElementById("wins");
-var	loses = document.getElementById('loses');
-var	guessedLeft = document.getElementById('guessedLeft');
-var	beenGuessed = document.getElementById('beenGuessed');
-var winScore = 0;
-var letterPress = [];
-/*var loseScore = 0;*/
-var guessedLeftScore = 15;
-	guessed = [];
-	comChoice = ["maltese"/*, "chihuahua", "poodle"*/];
-
-
-
-
-
-//change comPicked to underscore
-/*for(i = 0; i<comPicked.length; i++){
-	comPickedArr.push(i)	
-	var str1 = "Hello ";
-var str2 = "world!";
-var res = str1.concat(str2);
-	currentWord.textContent = "_ ";*/
-
-/*var mystring = computerPicked.charAt(i);
-
-var newString = mystring.replace(/computerPicked.charAt(i)/g, "_ ");
-console.log(newString);*/
-//}
-
-	
-//console.log(currentPicked.length);
-
-/*for(i = 0; i<7; i++){
-	var current = currentWord.textContent = "_ ";
-	current += current;
-}
-var mystring = 'This is a string';
-var newString = mystring.replace(/i/g, "a");
-console.log(newString);*/
-
-	document.onkeyup = function(event) {
-	 
-	 	var userGuess = event.key;
-	 	
-	 	
-
-
-        // Determine which key was pressed
-        var comPicked = comChoice[Math.floor(Math.random() * 1)];
-      /*  console.log(comPicked);
-        console.log(comPicked[0]);
-
-        currentWord.textContent = "_ "
-        currentWord.textContent = "_ _ "*/
-  
-       for(i=0; i<comPicked.length; i++){
-	currentWord.textContent = currentWord.textContent+ " _ ";
-}
-  
-       
-       
-    if ((userGuess === "a") || (userGuess === "b") || (userGuess === "c") ||
-    	(userGuess === "d") || (userGuess === "e") || (userGuess === "f") ||
-    	(userGuess === "g") || (userGuess === "h") || (userGuess === "i") ||
-    	(userGuess === "j") || (userGuess === "k") || (userGuess === "l") ||
-    	(userGuess === "m") || (userGuess === "n") || (userGuess === "o") ||
-    	(userGuess === "p") || (userGuess === "q") || (userGuess === "r") ||
-    	(userGuess === "s") || (userGuess === "t") || (userGuess === "u") ||
-    	(userGuess === "v") || (userGuess === "w") || (userGuess === "x") ||
-    	(userGuess === "y") || (userGuess === "z")) {
-
-    	//check if letter in the word
-    	var checkLetter = comPicked.indexOf(userGuess);
- 		
- 	
- 
-
-
-    if(checkLetter >-1){
-    	
-    	currentWord.textContent = userGuess;
-    
-    	//check what position of userGuess in comPicked.
- 	for(i = 0; i < comPicked.length; i++){
-  	
-    		if (userGuess == comPicked.charAt(i)){
-    			currentWord.textContent = userGuess;
-    	}	
-    	}
-    	}else{
-    	//that letter isn't in comPicked
-    
-    	guessedLeftScore--;
-
-		guessedLeft.textContent = guessedLeftScore;
-		guessed.push(userGuess);
-		beenGuessed.textContent = guessed.toString();
-		if(guessedLeftScore < 0){
-			resetLose();
-   		 }
-     }
-	
-
-}
-}
-
-
-function resetLose(){
+function startGame(){
 	guessedLeftScore = 15;
-	guessedLeft.textContent = "15";
-	guessed = [];
-	beenGuessed.textContent = "";
-	/*loseScore++;
-	loses.textContent = loseScore;*/
+	guessedWrong = [];
+	underScore = [];
+	chosenWord = wordsList[Math.floor(Math.random() * wordsList.length)];
+	arrChosenWord = chosenWord.split("");
+	//create underscore
+	for(var i =0; i<arrChosenWord.length; i++){
+	underScore.push(" _ ");
+	}	
+//show on HTML
+document.getElementById('currentWord').innerHTML = underScore.join("");
+document.getElementById('guessedLeft').innerHTML = guessedLeftScore;
+document.getElementById('beenGuessed').innerHTML = guessedWrong;
 }
-/*function resetWin(){
+	//startGame when refresh the page
+	startGame();
+	console.log(chosenWord);
+//check what letter was letterGuessed
+document.onkeyup = function(event){
 
-	guessedLeftScore = 9;
-	guessedLeft.textContent = "9";
-	guessed = [];
-	beenGuessed.textContent = "";
-
+	var letterGuessed = String.fromCharCode(event.keyCode).toLowerCase();
+	
+		checkLetters(letterGuessed);
 }
-*/
+
+function checkLetters(letterGuessed){
+	
+	//check if letterGuessed is in the chosenword
+	if(chosenWord.indexOf(letterGuessed) >-1){
+		// correct guess
+		for (var i=0; i< chosenWord.length; i++){
+			if(letterGuessed == arrChosenWord[i]){
+				underScore[i] = letterGuessed;	
+				document.getElementById('currentWord').innerHTML = underScore.join("");
+			}
+		
+		}
+		//wrong guess
+	} else{
+		guessedLeftScore--;
+		
+		document.getElementById('guessedLeft').innerHTML = guessedLeftScore;
+		guessedWrong.push(letterGuessed);
+		beenGuessed.innerHTML = guessedWrong.toString();
+		if (guessedLeftScore < 1){
+			
+		startGame()
+		}
+	}
+}
+		
+	
+	
