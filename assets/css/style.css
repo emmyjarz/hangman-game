@@ -43,7 +43,7 @@ p, span{
 	font-weight: bold;
 	color: red;
 }
-#winScore{
+#winScore, #chosenDog {
 	font-size: 3em;
 	font-weight: bold;
 	color: red;
@@ -51,11 +51,5 @@ p, span{
 #loseScore {
 	font-size: 2em;
 }
-#caption{
-	text-align: center;
-	font-weight: bold;
-	font-size: 2em;
 
-
-}
 

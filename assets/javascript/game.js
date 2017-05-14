@@ -1,5 +1,5 @@
-var	wordsList = ["maltese", "chihuahua", "poodle",/* "beagle", "yorkshire terrier",
-				 "dachshund", "pomeranian", "pug", "havanese", "papillon", "pekingese"*/];
+var	wordsList = ["maltese", "chihuahua", "poodle", "beagle", "bolognese",
+				 "dachshund", "pomeranian", "pug", "havanese", "papillon", "pekingese"];
 var chosenWord = "";
 var underScore = [];
 var guessedLeftScore = 10;
@@ -14,6 +14,7 @@ function startGame(){
 	underScore = [];
 	chosenWord = wordsList[Math.floor(Math.random() * wordsList.length)];
 	arrChosenWord = chosenWord.split("");
+
 	//create underscore
 	for(var i =0; i<arrChosenWord.length; i++){
 	underScore.push(" _ ");
@@ -26,20 +27,16 @@ document.getElementById('lose').innerHTML = "Let's Go!!";
 document.getElementById('chosenDog').innerHTML = "Who am I?"
 
 document.getElementById("image").setAttribute("src", "https://i.giphy.com/mVeXedeY4lpiE.gif");
-
-
 }
 	//startGame when refresh the page
 	startGame();
 
-	console.log(chosenWord);
 //check what letter was letterGuessed
 document.onkeyup = function(event){
 
 	var letterGuessed = String.fromCharCode(event.keyCode).toLowerCase();
 
-	
-		checkLetters(letterGuessed);
+	checkLetters(letterGuessed);
 }
 
 function checkLetters(letterGuessed){
@@ -55,43 +52,48 @@ function checkLetters(letterGuessed){
 			}
 		
 		}
-		//wrong guess
+		//win
 	}	else if (underScore.join("") == arrChosenWord.join("")){
 		win();
 
 		
-		
+		//wrong guess
 	} else{
 		guessedLeftScore--;
 		console.log(guessedLeftScore);
 		document.getElementById('guessedLeft').innerHTML = guessedLeftScore;
 		guessedWrong.push(letterGuessed);
 		document.getElementById("beenGuessed").innerHTML = guessedWrong.toString();
-
+		//warning
 		if (guessedLeftScore == 1){
 		document.getElementById("lose").innerHTML = "last Chance!!";
-			
+		//lose	
 		} if (guessedLeftScore == 0){
+			console.log(chosenDog);
 			lose();
 			
 		}
 	}
 }
+
 function lose(){
 	loseScore++;
 	document.getElementById("loseScore").innerHTML = "LOSES: " + loseScore;
 	document.getElementById("chosenDog").innerHTML = chosenWord;
-	//document.getElementById('chosenDog').classList.toggle("display");
-	document.getElementById("image").setAttribute("src", "/assets/images/" + chosenWord + ".jpg" );
-	startGame();
+	document.getElementById("image").setAttribute("src", "assets/images/" + chosenWord + ".jpg" );
+	setTimeout(function () {
+		startGame();
+	}, 2000);
+
 }	
+
 function win(){
 	winScore++;
 	document.getElementById("winScore").innerHTML = "WINS: " + winScore;
-	//document.getElementById("chosenDog").innerHTML = chosenWord;
-	//document.getElementById('chosenDog').classList.toggle("display");
+	document.getElementById("chosenDog").innerHTML = chosenWord;
 	document.getElementById("image").setAttribute("src", "assets/images/" + chosenWord + ".jpg");
-	document.getElementById("caption").innerHTML = chosenWord;
-	startGame();
+	setTimeout(function () {
+		startGame();
+	}, 2000);
 
 }	
