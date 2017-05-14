@@ -20,18 +20,17 @@ function startGame(){
 	underScore.push(" _ ");
 	}	
 //show on HTML
-document.getElementById('currentWord').innerHTML = underScore.join("");
-document.getElementById('guessedLeft').innerHTML = guessedLeftScore;
-document.getElementById('beenGuessed').innerHTML = guessedWrong;
-document.getElementById('lose').innerHTML = "Let's Go!!";
-document.getElementById('chosenDog').innerHTML = "Who am I?"
-
-document.getElementById("image").setAttribute("src", "https://i.giphy.com/mVeXedeY4lpiE.gif");
+	document.getElementById('currentWord').innerHTML = underScore.join("");
+	document.getElementById('guessedLeft').innerHTML = guessedLeftScore;
+	document.getElementById('beenGuessed').innerHTML = guessedWrong;
+	document.getElementById('lose').innerHTML = "Let's Go!!";
+	document.getElementById('chosenDog').innerHTML = "Who am I?"
+	document.getElementById("image").setAttribute("src", "assets/images/guess.gif");
 }
 	//startGame when refresh the page
 	startGame();
 
-//check what letter was letterGuessed
+//check what is letterGuessed
 document.onkeyup = function(event){
 
 	var letterGuessed = String.fromCharCode(event.keyCode).toLowerCase();
@@ -60,7 +59,6 @@ function checkLetters(letterGuessed){
 		//wrong guess
 	} else{
 		guessedLeftScore--;
-		console.log(guessedLeftScore);
 		document.getElementById('guessedLeft').innerHTML = guessedLeftScore;
 		guessedWrong.push(letterGuessed);
 		document.getElementById("beenGuessed").innerHTML = guessedWrong.toString();
@@ -69,7 +67,6 @@ function checkLetters(letterGuessed){
 		document.getElementById("lose").innerHTML = "last Chance!!";
 		//lose	
 		} if (guessedLeftScore == 0){
-			console.log(chosenDog);
 			lose();
 			
 		}
