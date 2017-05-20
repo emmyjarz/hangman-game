@@ -52,7 +52,7 @@ function checkLetters(letterGuessed){
 		
 		}
 		//win
-	}	else if (underScore.join("") == arrChosenWord.join("")){
+	} if (underScore.join("") == arrChosenWord.join("")){
 		win();
 
 		
