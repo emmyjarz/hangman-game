@@ -1,51 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<title>Hangman</title>
 	<link rel="stylesheet" href="assets/css/reset.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="assets/css/style.css">
 	<link href="https://fonts.googleapis.com/css?family=Indie+Flower|Lobster" rel="stylesheet">
-
 </head>
+
 <body>
-	
-	<div class="container-fluid">
+	<div class="container">
 		<div class="row">
 			<div class="col-xs-12">
 				<h1>HANGMAN</h1>
 				<h3>Small Dog Breeds</h3>
 				<h3 id="chosenDog"></h3>
 			</div>
-		</div><!-- first row -->
+		</div>
+		<!-- first row -->
 		<div class="row row-eq-height">
 			<div class="col-xs-2"></div>
-				
-					<div class="col-xs-4 left">
-						<div class="thumbnail">
-				
-							<img id="image" src="assets/images/guess.gif" alt="">
-							
-						</div>
-					</div><!-- left column -->
-					<div class="col-xs-4 right">
-						<h2>PRESS ANY KEY TO GET STARTED!!!</h2>
-						<p><span id="winScore"></span></p>
-						<p><span id="loseScore"></span></p>
-						<span id="lose"></span>
-						<p>CURRENT WORD</p>
-						<span id = "currentWord"></span>
-						<p>NUMBER OF GUESSED REMAINING: <span id = "guessedLeft">15<span></p>
+			<div class="col-xs-4 left">
+				<div class="thumbnail">
+					<img id="image" src="assets/images/guess.gif" alt="">
+				</div>
+			</div>
+			<!-- left column -->
+			<div class="col-xs-4 right">
+				<h2>PRESS ANY KEY TO GET STARTED!!!</h2>
+				<p><span id="winScore"></span></p>
+				<p><span id="loseScore"></span></p>
+				<span id="lose"></span>
+				<p>CURRENT WORD</p>
+				<span id="currentWord"></span>
+				<p>NUMBER OF GUESSED REMAINING: <span id="guessedLeft">15<span></p>
 						<p>LETTER ALREADY GUESSED:</p>
 						<span id="beenGuessed"></span>
-					</div><!-- right column -->
-				
+			</div>
+			<!-- right column -->
 			<div class="col-xs-2"></div>
-		</div><!-- second row -->
-
-	</div><!-- container -->
-	
-<script type="text/javascript" src = "assets/javascript/game.js"></script>	
+		</div>
+		<!-- second row -->
+	</div>
+	<!-- container -->
+	<script type="text/javascript" src="assets/javascript/game.js"></script>
 </body>
+
 </html>

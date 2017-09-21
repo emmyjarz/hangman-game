@@ -4,13 +4,10 @@ body{
 	background-image: url(../images/wallpaper.jpg); 
 	
 }
-.wraper{
+/* .wraper{
 
 	border: 2px dashed grey;
-
-	
-
-}
+} */
 h1, h3{
 	text-align: center;
 	font-family: 'Lobster', cursive;
